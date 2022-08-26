@@ -26,7 +26,13 @@ echo "$(basename "$0") already running, exiting..."; exit 1; fi
 . ${PWD}/config/rclone-mergerfs.config
 
 if [[ ! -d ${LOG_PATH} ]]; then
-mkdir -p ${LOG_PATH};
+	mkdir -p ${LOG_PATH};
+fi
+if [[ ! -d ${MOUNT_PATH} ]]; then
+	mkdir -p ${MOUNT_PATH};
+fi
+if [[ ! -d ${MERGERFS_PATH} ]]; then
+	mkdir -p ${MERGERFS_PATH};
 fi
 
 # rclone
@@ -63,5 +69,5 @@ fi
 
 # mergerfs
 /usr/bin/mergerfs ${LOCAL_PATH}:${MOUNT_PATH} ${MERGERFS_PATH} \
--o rw,use_ino,allow_other,func.getattr=newest,category.action=all,category.create=ff,cache.files=auto-full,dropcacheonclose=true
+-o nonempty,rw,use_ino,allow_other,func.getattr=newest,category.action=all,category.create=ff,cache.files=auto-full,dropcacheonclose=true
 
