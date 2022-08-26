@@ -1,0 +1,23 @@
+version: "3"
+services:
+  aliyundrive:
+    image: messense/aliyundrive-webdav
+    container_name: aliyundrive
+    ports:
+      - 9090:8080
+    environment:
+      - REFRESH_TOKEN=${ALIYUNDRIVE_REFRESH_TOKEN}
+      - WEBDAV_AUTH_USER=${ALIYUNDRIVE_WEBDAV_AUTH_USER}
+      - WEBDAV_AUTH_PASSWORD=${ALIYUNDRIVE_WEBDAV_AUTH_PASSWORD}
+    restart: unless-stopped
+
+#  alist:
+#    image: xhofe/alist:latest
+#    container_name: alist
+#    ports:
+#      - 5244:5244
+#    environment:
+#      - TZ=Asia/Shanghai
+#    volumes:
+#      - ${CONFIG_PATH}/alist:/opt/alist/data
+#    restart: unless-stopped

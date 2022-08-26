@@ -1,0 +1,18 @@
+[Unit]
+Description=RClone Mergerfs Service
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=forking
+KillMode=process
+RestartSec=5
+Restart=on-failure
+User=root
+Group=root
+WorkingDirectory=/docker/cloud-drive/rclone-mergerfs
+ExecStart=/docker/cloud-drive/rclone-mergerfs/mount.sh
+ExecStop=/docker/cloud-drive/rclone-mergerfs/unmount.sh
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,7 @@
+media/music/**
+media/picture/**
+media/video/download/**
+.**
+*.upload
+*partial~
+Thumbs.db
