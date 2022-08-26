@@ -272,10 +272,10 @@ sudo crontab -e
 
 ```text
 # 每天 0 点上传
-0 0 * * * /docker/cloud-drive/rclone-mergerfs/rclone-upload.sh
+0 0 * * * /docker/cloud-drive/rclone-mergerfs/upload.sh
 ```
 
-> 注意修改脚本路径 /docker/cloud-drive/rclone-mergerfs/rclone-upload.sh
+> 注意修改脚本路径 /docker/cloud-drive/rclone-mergerfs/upload.sh
 
 ## 👏 相关仓库
 
