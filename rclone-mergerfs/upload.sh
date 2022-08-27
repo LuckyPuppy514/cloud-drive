@@ -16,6 +16,8 @@ set -e
 if [[ $(pidof -x "$(basename "$0")" -o %PPID) ]]; then
 echo "$(basename "$0") already running, exiting..."; exit 1; fi
 
+SHELL_FOLDER=$(cd "$(dirname "$0")";pwd)
+cd ${SHELL_FOLDER}
 . ${PWD}/config/rclone-mergerfs.config
 
 if  [ ! "$1" ] ;then
